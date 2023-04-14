@@ -10,12 +10,16 @@ import {
   Title,
 } from 'react-native-paper';
 import {homeStyle} from './home.style';
+import ConfirmDeliveryCardComponent from '../../components/confirm-delivery-card/confirm-delivery-card.component';
+import SearchingDeliveryComponent from '../../components/searching-delivery/searching-delivery.component';
+import {HeaderComponent} from '../../components/header/header.component';
 
 export const HomeScreen = (): JSX.Element => {
   const state: number = 3;
 
   return (
     <SafeAreaView style={homeStyle.flexFull}>
+      <HeaderComponent title="Delivery App" />
       <MapView
         style={homeStyle.flexFull}
         initialRegion={{
@@ -85,31 +89,9 @@ export const HomeScreen = (): JSX.Element => {
       {state === 1 ? (
         <FAB style={homeStyle.fab} icon="plus" />
       ) : state === 2 ? (
-        <Card>
-          <Card.Content>
-            <List.Item
-              title="$13.50"
-              description="Total price of delivery"
-              left={props => (
-                <IconButton icon="bike" size={40} style={homeStyle.icon} />
-              )}
-              right={props => (
-                <View>
-                  <Button>Cancel</Button>
-                  <Button mode="contained">Cancel</Button>
-                </View>
-              )}
-            />
-          </Card.Content>
-        </Card>
+        <ConfirmDeliveryCardComponent />
       ) : state === 3 ? (
-        <View style={homeStyle.flexCenterColumn}>
-          <ActivityIndicator color={homeStyle.icon.color} animating />
-          <Title style={homeStyle.title}>Searching for a delivery person</Title>
-          <Button mode="contained" style={homeStyle.cancelDeliveryButton}>
-            Cancel
-          </Button>
-        </View>
+        <SearchingDeliveryComponent />
       ) : null}
     </SafeAreaView>
   );

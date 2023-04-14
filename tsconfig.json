@@ -3,15 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@assets/*": [
-        "app/assets/*"
-      ],
-      "@components/*": [
-        "app/components/*"
-      ],
-      "@screens/*": [
-        "app/screens/*"
-      ],
+      "@/*": ["app/*"],
+      "@assets/*": ["app/assets/*"],
+      "@components/*": ["app/components/*"],
+      "@screens/*": ["app/screens/*"]
     }
-  }
+  },
+  "include": ["app/**/*", "./App.tsx"]
 }
