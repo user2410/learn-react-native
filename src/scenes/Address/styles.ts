@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const addressStyle = StyleSheet.create({
+export default StyleSheet.create({
 	marginHorizontal: {
 		marginHorizontal: 10
 	}

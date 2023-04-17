@@ -9,19 +9,63 @@ import {
   List,
   Title,
 } from 'react-native-paper';
-import {homeStyle} from './home.style';
-import ConfirmDeliveryCardComponent from '../../components/confirm-delivery-card/confirm-delivery-card.component';
-import SearchingDeliveryComponent from '../../components/searching-delivery/searching-delivery.component';
-import {HeaderComponent} from '../../components/header/header.component';
 
-export const HomeScreen = (): JSX.Element => {
-  const state: number = 3;
+// import {HeaderComponent} from '../../components/header/header.component';
+import styles, {
+  confirmDeliveryCardStyle,
+  searchingDeliveryStyle,
+} from './styles';
+
+const ConfirmDeliveryCard = (): JSX.Element => {
+  return (
+    <Card>
+      <Card.Content>
+        <List.Item
+          title="$13.50"
+          description="Total price of delivery"
+          left={props => (
+            <IconButton
+              icon="bike"
+              size={40}
+              style={confirmDeliveryCardStyle.icon}
+            />
+          )}
+          right={props => (
+            <View>
+              <Button>Cancel</Button>
+              <Button mode="contained">Confirm</Button>
+            </View>
+          )}
+        />
+      </Card.Content>
+    </Card>
+  );
+};
+
+const SearchingDeliveryComponent = (): JSX.Element => {
+  return (
+    <View style={searchingDeliveryStyle.flexCenterColumn}>
+      <ActivityIndicator color={searchingDeliveryStyle.icon.color} animating />
+      <Title style={searchingDeliveryStyle.title}>
+        Searching for a delivery person
+      </Title>
+      <Button
+        mode="contained"
+        style={searchingDeliveryStyle.cancelDeliveryButton}>
+        Cancel
+      </Button>
+    </View>
+  );
+};
+
+export default (): JSX.Element => {
+  const state: number = 2;
 
   return (
-    <SafeAreaView style={homeStyle.flexFull}>
-      <HeaderComponent title="Delivery App" />
+    <SafeAreaView style={styles.flexFull}>
+      {/* <HeaderComponent title="Delivery App" /> */}
       <MapView
-        style={homeStyle.flexFull}
+        style={styles.flexFull}
         initialRegion={{
           latitude: 21.007076103786403,
           longitude: 105.84310564167778,
@@ -37,9 +81,9 @@ export const HomeScreen = (): JSX.Element => {
                 longitude: 105.84834190302948,
               }}>
               <Image
-                style={homeStyle.markerImage}
+                style={styles.markerImage}
                 // source={require('@/assets/cyclist-icon.png')}
-                source={require('../../assets/cyclist-icon.png')}
+                source={require('@assets/icons/cyclist-icon.png')}
               />
             </Marker>
             <Marker
@@ -49,9 +93,9 @@ export const HomeScreen = (): JSX.Element => {
                 longitude: 105.8466110405458,
               }}>
               <Image
-                style={homeStyle.markerImage}
+                style={styles.markerImage}
                 // source={require('@/assets/cyclist-icon.png')}
-                source={require('../../assets/cyclist-icon.png')}
+                source={require('@assets/icons/cyclist-icon.png')}
               />
             </Marker>
             <Marker
@@ -61,9 +105,9 @@ export const HomeScreen = (): JSX.Element => {
                 longitude: 105.84398550002601,
               }}>
               <Image
-                style={homeStyle.markerImage}
+                style={styles.markerImage}
                 // source={require('@/assets/cyclist-icon.png')}
-                source={require('../../assets/cyclist-icon.png')}
+                source={require('@assets/icons/cyclist-icon.png')}
               />
             </Marker>
           </>
@@ -87,9 +131,9 @@ export const HomeScreen = (): JSX.Element => {
         ) : null}
       </MapView>
       {state === 1 ? (
-        <FAB style={homeStyle.fab} icon="plus" />
+        <FAB style={styles.fab} icon="plus" />
       ) : state === 2 ? (
-        <ConfirmDeliveryCardComponent />
+        <ConfirmDeliveryCard />
       ) : state === 3 ? (
         <SearchingDeliveryComponent />
       ) : null}

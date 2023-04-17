@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const loginStyle = StyleSheet.create({
+export default StyleSheet.create({
 	content: {
 		display: 'flex',
 		flex: 1,
@@ -10,7 +10,7 @@ export const loginStyle = StyleSheet.create({
 		backgroundColor: 'purple'
 	},
 	view: {
-		width: '80%'
+		width: '85%'
 	},
 	cardTitle: {
 		color: 'purple'

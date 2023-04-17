@@ -1,12 +1,10 @@
-import {HeaderComponent} from '../../components/header/header.component';
+import Header from '@components/Header';
 import React, {Component, ReactNode} from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {Button, TextInput, Title} from 'react-native-paper';
-import {addressStyle} from './address.style';
+import styles from './styles';
 
-type Props = {};
-
-export default function AddressScreen({}: Props) {
+export default function Address() {
   const [destListIndex, setDestListIndex] = React.useState<number>(1);
   const [destList, setDestList] = React.useState<number[]>([0]);
 
@@ -28,8 +26,8 @@ export default function AddressScreen({}: Props) {
 
   return (
     <SafeAreaView>
-      <HeaderComponent title="Address" hasBackButton={true} />
-      <View style={addressStyle.marginHorizontal}>
+      <Header title="Address" hasBackButton={false} />
+      <View style={styles.marginHorizontal}>
         <TextInput style={{backgroundColor: 'transparent'}} label="Origin" />
         {destList.map((dest, idx) => (
           <TextInput
