@@ -6,6 +6,7 @@
  */
 
 import Address from '@scenes/Address';
+import Deliveries from '@scenes/Deliveries';
 // import Home from '@scenes/Home';
 import React from 'react';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
@@ -23,7 +24,7 @@ export const theme = {
 function App(): JSX.Element {
   return (
     <PaperProvider theme={theme}>
-      <Address />
+      <Deliveries />
     </PaperProvider>
   );
 }
