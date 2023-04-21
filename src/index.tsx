@@ -5,11 +5,10 @@
  * @format
  */
 
-import Address from '@scenes/Address';
-import Deliveries from '@scenes/Deliveries';
 // import Home from '@scenes/Home';
 import React from 'react';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import Navigation from './navigation';
 // import Login from '@scenes/Login';
 // import Register from '@scenes/Register';
 
@@ -24,7 +23,7 @@ export const theme = {
 function App(): JSX.Element {
   return (
     <PaperProvider theme={theme}>
-      <Deliveries />
+      <Navigation />
     </PaperProvider>
   );
 }

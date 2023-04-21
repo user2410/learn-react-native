@@ -1,3 +1,4 @@
+import React from 'react';
 import {Image, SafeAreaView, View} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import {
@@ -15,6 +16,10 @@ import styles, {
   confirmDeliveryCardStyle,
   searchingDeliveryStyle,
 } from './styles';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'src/navigation';
+import {useNavigation} from '@react-navigation/native';
+import Header from '@components/Header';
 
 const ConfirmDeliveryCard = (): JSX.Element => {
   return (
@@ -58,12 +63,15 @@ const SearchingDeliveryComponent = (): JSX.Element => {
   );
 };
 
+type HomeSceneProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
 export default (): JSX.Element => {
-  const state: number = 2;
+  const navigation = useNavigation<HomeSceneProp>();
+  const state: number = 1;
 
   return (
     <SafeAreaView style={styles.flexFull}>
-      {/* <HeaderComponent title="Delivery App" /> */}
+      <Header title="Delivery App" hasBackButton={false} />
       <MapView
         style={styles.flexFull}
         initialRegion={{
@@ -131,7 +139,11 @@ export default (): JSX.Element => {
         ) : null}
       </MapView>
       {state === 1 ? (
-        <FAB style={styles.fab} icon="plus" />
+        <FAB
+          style={styles.fab}
+          icon="plus"
+          onPress={() => navigation.navigate('AddAddress')}
+        />
       ) : state === 2 ? (
         <ConfirmDeliveryCard />
       ) : state === 3 ? (

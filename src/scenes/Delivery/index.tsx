@@ -3,11 +3,21 @@ import {SafeAreaView, View} from 'react-native';
 import styles from './styles';
 import MapView from 'react-native-maps';
 import {Avatar, Card, List, Text} from 'react-native-paper';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'src/navigation';
+import {useNavigation} from '@react-navigation/native';
+
+type DeliverySceneProps = StackNavigationProp<RootStackParamList, 'Delivery'>;
 
 export default (): JSX.Element => {
+  const navigation = useNavigation<DeliverySceneProps>();
   return (
     <SafeAreaView>
-      <Header title="Delivery details" hasBackButton={true} />
+      <Header
+        title="Delivery details"
+        hasBackButton={true}
+        navigation={navigation}
+      />
       <View style={styles.flex}>
         <MapView
           style={styles.flex}

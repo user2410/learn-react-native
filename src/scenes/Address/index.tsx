@@ -3,10 +3,16 @@ import React, {Component, ReactNode} from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {Button, TextInput, Title} from 'react-native-paper';
 import styles from './styles';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'src/navigation';
+import {useNavigation} from '@react-navigation/native';
 
-export default function Address() {
+type AddressSceneProp = StackNavigationProp<RootStackParamList, 'AddAddress'>;
+
+export default (): JSX.Element => {
   const [destListIndex, setDestListIndex] = React.useState<number>(1);
   const [destList, setDestList] = React.useState<number[]>([0]);
+  const navigation = useNavigation<AddressSceneProp>();
 
   const handleAddDestination = () => {
     console.log(`add a new dest with index = ${destListIndex}`);
@@ -26,7 +32,7 @@ export default function Address() {
 
   return (
     <SafeAreaView>
-      <Header title="Address" hasBackButton={false} />
+      <Header title="Address" hasBackButton={true} navigation={navigation} />
       <View style={styles.marginHorizontal}>
         <TextInput style={{backgroundColor: 'transparent'}} label="Origin" />
         {destList.map((dest, idx) => (
@@ -48,4 +54,4 @@ export default function Address() {
       </View>
     </SafeAreaView>
   );
-}
+};
