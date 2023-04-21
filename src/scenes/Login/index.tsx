@@ -5,11 +5,26 @@ import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'src/navigation';
+import {LoadingState} from '../../store/loading/state';
+import {bindActionCreators} from '@reduxjs/toolkit';
+import {hide, show} from '../../store/loading/action';
+import {connect} from 'react-redux';
 
+interface ILoginProps {
+  loadingState: LoadingState;
+  hideLoading: Function;
+  showLoading: Function;
+}
 type LoginSceneProp = StackNavigationProp<RootStackParamList, 'Login'>;
 
-export default (): JSX.Element => {
+const Login = (props: ILoginProps): JSX.Element => {
   const navigation = useNavigation<LoginSceneProp>();
+  const forgotEmailPassword = () => {
+    props.showLoading();
+    setTimeout(() => {
+      props.hideLoading();
+    }, 3000);
+  };
 
   return (
     <SafeAreaView style={styles.content}>
@@ -19,7 +34,10 @@ export default (): JSX.Element => {
           <Card.Content>
             <TextInput label="Email" keyboardType="email-address" />
             <TextInput label="Password" secureTextEntry />
-            <Button uppercase={false} style={styles.cardButton}>
+            <Button
+              uppercase={false}
+              style={styles.cardButton}
+              onPress={forgotEmailPassword}>
               Forgot email/password
             </Button>
             <Button
@@ -39,3 +57,18 @@ export default (): JSX.Element => {
     </SafeAreaView>
   );
 };
+
+const mapStateToProps = (store: {loading: LoadingState}) => ({
+  loadingState: store.loading,
+});
+
+const mapDispatchToProps = (dispatch: any) =>
+  bindActionCreators(
+    {
+      hideLoading: hide,
+      showLoading: show,
+    },
+    dispatch,
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

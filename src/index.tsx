@@ -9,6 +9,9 @@
 import React from 'react';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import Navigation from './navigation';
+import {Provider} from 'react-redux';
+import {store} from './store/store';
+import Loading from '@components/Loading';
 // import Login from '@scenes/Login';
 // import Register from '@scenes/Register';
 
@@ -22,9 +25,12 @@ export const theme = {
 
 function App(): JSX.Element {
   return (
-    <PaperProvider theme={theme}>
-      <Navigation />
-    </PaperProvider>
+    <Provider store={store}>
+      <PaperProvider theme={theme}>
+        <Navigation />
+        <Loading />
+      </PaperProvider>
+    </Provider>
   );
 }
 

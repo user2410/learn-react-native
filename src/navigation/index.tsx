@@ -23,7 +23,7 @@ export default (): JSX.Element => {
   return (
     <NavigationContainer>
       <RootStack.Navigator
-        initialRouteName="Register"
+        initialRouteName="Login"
         screenOptions={{headerShown: false}}>
         <RootStack.Screen name="Login" component={Login} />
         <RootStack.Screen name="Register" component={Register} />
