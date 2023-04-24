@@ -17,5 +17,9 @@ export default StyleSheet.create({
 	},
 	cardButton: {
 		margin: 2
+	},
+	error: {
+		color: 'red',
+		backgroundColor: 'white'
 	}
 })
