@@ -4,7 +4,7 @@ import React from 'react';
 import {FlatList, SafeAreaView} from 'react-native';
 import {Card, Text} from 'react-native-paper';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from 'src/navigation';
+import {RootStackParamList} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 
 type DeliveriesSceneProps = StackNavigationProp<

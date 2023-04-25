@@ -4,7 +4,7 @@ import {SafeAreaView, View} from 'react-native';
 import {Button, TextInput, Title} from 'react-native-paper';
 import styles from './styles';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from 'src/navigation';
+import {RootStackParamList} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 
 type AddressSceneProp = StackNavigationProp<RootStackParamList, 'AddAddress'>;

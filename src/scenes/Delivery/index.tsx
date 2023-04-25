@@ -4,7 +4,7 @@ import styles from './styles';
 import MapView from 'react-native-maps';
 import {Avatar, Card, List, Text} from 'react-native-paper';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from 'src/navigation';
+import {RootStackParamList} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 
 type DeliverySceneProps = StackNavigationProp<RootStackParamList, 'Delivery'>;

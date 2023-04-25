@@ -2,7 +2,7 @@ import React from 'react';
 import {ActivityIndicator} from 'react-native-paper';
 import {View} from 'react-native';
 import styles from './styles';
-import {LoadingState} from 'src/store/loading/state';
+import {LoadingState} from '@store/loading/state';
 import {connect} from 'react-redux';
 
 interface LoadingComponentProp {

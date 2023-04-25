@@ -17,7 +17,7 @@ import styles, {
   searchingDeliveryStyle,
 } from './styles';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from 'src/navigation';
+import {RootStackParamList} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 import Header from '@components/Header';
 

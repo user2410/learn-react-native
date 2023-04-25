@@ -4,7 +4,7 @@ import React from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
-import {RootStackParamList} from 'src/navigation';
+import {RootStackParamList} from '@navigation';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 type RegisterSceneProp = StackNavigationProp<RootStackParamList, 'Register'>;

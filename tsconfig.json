@@ -5,9 +5,11 @@
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
+      "@navigation/*": ["src/navigation/*"],
       "@scenes/*": ["src/scenes/*"],
-      "@store/*": ["src/stores/*"]
+      "@store/*": ["src/store/*"],
+      "@services/*": ["src/services/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "./**/*.ts", "./**/*.tsx"]
 }
